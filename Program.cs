@@ -111,25 +111,51 @@ class Bank
     // Method to create an account
     static void CreateAccount()
     {
-        Console.Write("Enter Account Number: ");
-        string accountNumber = Console.ReadLine();
-        Console.Write("Enter Account Holder Name: ");
-        string accountHolderName = Console.ReadLine();
+
+        string accountnumber;
+
+        string accountholdername;
+        
+
+        while (true) 
+        {
+            Console.Write("Enter Account Number: ");
+
+            accountnumber = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(accountnumber) )
+            {
+                Console.WriteLine("Either Account number cannot be empty.");
+                continue; 
+            }
+
+
+            break; 
+        }
+
+        while (true) 
+        {
+            Console.Write("Enter Account Holder Name: ");
+
+            accountholdername = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(accountholdername))
+            {
+                Console.WriteLine("Account holder name cannot be empty");
+                continue;
+            }
+            break; 
+        }
 
 
 
-
-        // Creating a new account instance
-        Account newAccount = new Account(accountNumber: accountNumber, accountHolderName, balance: 0) { };
+        Account newAccount = new Account(accountnumber, accountholdername, 0);
         accounts.Add(newAccount);
 
         Console.WriteLine("Account created successfully!");
-
         Console.WriteLine("Press any key to return to the menu...");
-
         Console.ReadKey();
     }
-
     // Method to deposit 
     static void DepositMoney()
     {
